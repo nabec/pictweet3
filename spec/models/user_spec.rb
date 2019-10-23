@@ -4,7 +4,7 @@ describe User do
 
     it 'is valid with a nickname, email, password, password_confirmation' do
       user = build(:user)
-      except(:user).to be_valid
+      expect(user).to be_valid
     end
 
     it 'is invalid without a nickname' do
