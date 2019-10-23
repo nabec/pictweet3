@@ -42,5 +42,12 @@ describe User do
       expect(user).to be_valid
     end
 
+    it 'is invalid with a duplicate email address' do
+      user = create(:user)
+      another_user = build(:user)
+      another_user.valid?
+      expect(another_user.errors[:email]).to include("has already been taken")
+    end
+
   end
 end
