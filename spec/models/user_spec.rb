@@ -37,5 +37,10 @@ describe User do
       expect(user.errors[:nickname]).to include("is too long (maximum is 6 characters)")
     end
 
+    it 'is valid with a nickname that has less than 6 characters' do
+      user = build(:user, nickname: "aaaaaa")
+      expect(user).to be_valid
+    end
+
   end
 end
