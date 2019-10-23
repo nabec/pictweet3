@@ -54,5 +54,11 @@ describe User do
       expect(user).to be_valid
     end
 
+    it 'is invalid with a password that has less than 5 characters' do
+      user = build(:user, password: "00000", password_confirmation: "00000")
+      user.valid?
+      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
+    end
+
   end
 end
