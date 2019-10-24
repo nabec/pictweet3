@@ -17,4 +17,10 @@ describe TweetsController do
     end
   end
 
+  it "renders the :edit template" do
+    tweet = create(:tweet)
+    get :edit, params: { id: tweet }
+    expect(response).to render_template :edit
+  end
+
 end
